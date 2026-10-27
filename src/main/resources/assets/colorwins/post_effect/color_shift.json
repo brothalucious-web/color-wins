@@ -1,0 +1,67 @@
+{
+  "targets": {
+    "swap": {}
+  },
+  "passes": [
+    {
+      "program": "colorwins:post/color_shift",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "minecraft:main",
+          "bilinear": true
+        }
+      ],
+      "output": "swap",
+      "uniforms": [
+        {
+          "name": "Transition",
+          "values": [
+            0
+          ]
+        },
+        {
+          "name": "ColorCount",
+          "values": [
+            0
+          ]
+        },
+        {
+          "name": "SkyHue",
+          "values": [
+            0
+          ]
+        },
+        {
+          "name": "TerrainHue",
+          "values": [
+            0
+          ]
+        },
+        {
+          "name": "EntitiesHue",
+          "values": [
+            0
+          ]
+        },
+        {
+          "name": "UiHue",
+          "values": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "program": "minecraft:post/blit",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap",
+          "bilinear": true
+        }
+      ],
+      "output": "minecraft:main"
+    }
+  ]
+}
