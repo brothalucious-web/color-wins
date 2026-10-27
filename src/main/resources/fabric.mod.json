@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "colorwins",
+  "version": "${version}",
+  "name": "Color Wins",
+  "description": "A Fabric 1.21.2 client mod that evolves from grayscale to independently randomized color categories.",
+  "authors": [
+    "brothalucious-web"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.brothalucious.colorwins.ColorWinsClient"
+    ]
+  },
+  "mixins": [
+    "colorwins.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.2",
+    "java": ">=21",
+    "fabric-api": "*",
+    "satin": ">=3.0.0-alpha.1"
+  }
+}
