@@ -1,5 +1,5 @@
 #version 150
-uniform sampler2D In;
+uniform sampler2D InSampler;
 uniform float Transition;
 uniform float ColorCount;
 uniform float SkyHue;
@@ -22,7 +22,7 @@ vec3 hsvToRgb(vec3 c) {
 vec3 gray(vec3 c) { float l=dot(c,vec3(0.2126,0.7152,0.0722)); return vec3(l); }
 vec3 tint(vec3 c,float h) { vec3 v=rgbToHsv(c); v.x=fract(h); v.y=max(v.y,0.72); return hsvToRgb(v); }
 void main() {
- vec4 s=texture(In,texCoord); vec3 mono=gray(s.rgb);
+ vec4 s=texture(InSampler,texCoord); vec3 mono=gray(s.rgb);
  float upper=1.0-smoothstep(0.28,0.62,texCoord.y);
  float worldArea=smoothstep(0.18,0.55,texCoord.y)*(1.0-smoothstep(0.82,0.98,texCoord.y));
  float edgeX=max(1.0-smoothstep(0.02,0.14,texCoord.x),smoothstep(0.86,0.98,texCoord.x));
